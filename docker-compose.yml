@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  elasticsearchbrowser:
+    image: elasticsearchbrowser
+    build:
+      context: .
+      dockerfile: ElasticsearchBrowser\Dockerfile
