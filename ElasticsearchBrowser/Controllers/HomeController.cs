@@ -12,6 +12,7 @@ namespace ElasticsearchBrowser.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
 

@@ -1,0 +1,59 @@
+﻿@model IndicesViewModel
+@{
+    ViewData["Title"] = "Indices";
+}
+
+<label>Alias</label>
+<table style="width: 100%">
+    <tr>
+        <td>Index</td>
+        <td>Alias</td>
+        <td>Filter</td>
+        <td>IndexRouting</td>
+        <td>SearchRouting</td>
+    </tr>
+    @foreach (var item in Model.Alias)
+    {
+        <tr>
+            <td>@item.Index</td>
+            <td>@item.Alias</td>
+            <td>@item.Filter</td>
+            <td>@item.IndexRouting</td>
+            <td>@item.SearchRouting</td>
+        </tr>
+    }
+</table>
+<p></p>
+<label>Indices</label>
+<table style="width: 100%">
+    <tr>
+        <td>Index</td>
+        <td>DocsCount</td>
+        <td>DocsDeleted</td>
+        <td>Health</td>
+        <td>Primary</td>
+        <td>PrimaryStoreSize</td>
+        <td>PrimaryStoreSize</td>
+        <td>Replica</td>
+        <td>Status</td>
+        <td>StoreSize</td>
+        <td>TotalMemory</td>
+    </tr>
+    @foreach (var item in Model.Indices)
+    {
+        <tr>
+            <td>@item.Index</td>
+            <td>@item.DocsCount</td>
+            <td>@item.DocsDeleted</td>
+            <td style="background:@item.Health">@item.Health</td>
+            <td>@item.Primary</td>
+            <td>@item.PrimaryStoreSize</td>
+            <td>@item.PrimaryStoreSize</td>
+            <td>@item.Replica</td>
+            <td>@item.Status</td>
+            <td>@item.StoreSize</td>
+            <td>@item.TotalMemory</td>
+        </tr>
+    }
+</table>
+
