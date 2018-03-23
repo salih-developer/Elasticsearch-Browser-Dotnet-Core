@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ElasticsearchBrowser
 {
+    using ElasticsearchBrowser.Common;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -21,6 +23,7 @@ namespace ElasticsearchBrowser
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IElasticContex>(provider => new ElasticContex());
             services.AddMvc();
         }
 
