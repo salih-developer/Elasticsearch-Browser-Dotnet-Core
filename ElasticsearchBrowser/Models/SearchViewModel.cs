@@ -12,5 +12,7 @@ namespace ElasticsearchBrowser.Models
         public List<Dictionary<string, object>> Documents { get; set; }
 
         public List<KeyValuePair<string, string>> FieldList { get; set; }
+
+        
     }
 }

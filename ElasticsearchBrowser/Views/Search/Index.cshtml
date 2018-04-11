@@ -6,29 +6,37 @@
 }
 <p></p>
 <div class="col-lg-2">
-    <ul>
-        @foreach (var item in Model.FieldList.OrderBy(c=>c.Key))
-        {
-            <li>
-                @item.Key &nbsp; <input type="text" id="searchKey_@item.Key" name="searchKey_@item.Key"/>
-            </li>
-        }
-    </ul>
-    <div>
-        <button>Ara</button>
-    </div>
+    @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+    {
+        <ul>
+            @foreach (var item in Model.FieldList.OrderBy(c => c.Key))
+            {
+
+                <li>
+                    @item.Key &nbsp; <input type="text" id="searchKey_@item.Key" name="searchKey_@item.Key" />
+                </li>
+            }
+        </ul>
+
+        <div>
+            <button>Ara</button>
+        </div>
+    }
 </div>
 <div class="col-lg-10">
-    <table style="width: 100%;font-size: 10px;font-family: sans-serif" border="1px">
+    <table class="table" style="width: 100%;font-size: 10px;font-family: sans-serif" border="1px">
         <tr style="background: aliceblue">
             <td>
                 &nbsp;
             </td>
-            @foreach (var item in Model.Documents.First())
+            @if (Model.Documents.Any())
             {
+                foreach (var item in Model.Documents.First())
+                {
 
-                <td style="word-wrap: break-word; width: 100px"> @item.Key</td>
+                    <td style="word-wrap: break-word; width: 100px"> @item.Key</td>
 
+                }
             }
         </tr>
         @foreach (var item in Model.Documents)
